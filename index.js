@@ -16,6 +16,12 @@ app.get(`/:name`, (req, res) => {
     res.send(content);
 })
 
+app.get(`/:name/:place`, (req, res) => {
+    let content = template.replace("***NAME***", req.params.name)
+                          .replace("***PLACE***", req.params.place)
+    res.send(content);
+})
+
 server.listen(PORT, () => {
     console.log(`Listening on PORT ${PORT}...`);
 })
